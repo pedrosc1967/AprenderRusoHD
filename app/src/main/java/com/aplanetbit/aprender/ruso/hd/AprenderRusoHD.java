@@ -18,58 +18,24 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ShareActionProvider;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.apptracker.android.track.AppTracker;
-import com.flurry.android.FlurryAgent;
-import com.revmob.RevMob;
-import com.revmob.RevMobAdsListener;
-import com.revmob.ads.fullscreen.RevMobFullscreen;
-
 import java.util.Locale;
+import com.facebook.ads.*;
+import com.facebook.ads.AdSize;
+import com.facebook.ads.AdView;
+import com.facebook.ads.AudienceNetworkAds;
 
-import io.presage.Presage;
-import io.presage.utils.IADHandler;
 
 import static android.content.Intent.ACTION_VIEW;
 
 public class AprenderRusoHD extends Activity implements OnInitListener {
 
-
     private int MY_DATA_CHECK_CODE = 0;
     private TextToSpeech mTts;
     private ShareActionProvider mShareActionProvider;
-
-    private RevMob revmob;
-
-    private RevMobFullscreen fullscreen;
-    private boolean adIsLoaded = false;
-
-    RevMobAdsListener revmobListener = new RevMobAdsListener() {
-
-        // Required
-        @Override
-        public void onRevMobSessionIsStarted() {
-            loadFullscreen();// pre-load it without showing it
-        }
-
-        public void onRevMobAdReceived() {
-            adIsLoaded = true; // Now you can show your fullscreen whenever you want
-        }
-    };
-
-    public void loadFullscreen() {
-        fullscreen = revmob.createFullscreen(this, revmobListener);
-    }
-
-    public void showRevmobAd() {
-        if(adIsLoaded) fullscreen.show(); // call it wherever you want to show the fullscreen ad
-    }
-
-
-
 
     //Definici�n del men� en menu.xml
     @Override
@@ -101,13 +67,12 @@ public class AprenderRusoHD extends Activity implements OnInitListener {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.Otras_apps:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://search?q=pub:\"Pedro Santangelo\"") ) );
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/search?q=A%20Planet%20Bit&c=apps") ) );
                 return true;
             case R.id.Rate:
                 startActivity(new Intent(ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id="+getString(R.string.paquete)) ) );
                 return true;
             case R.id.Salir:
-                FlurryAgent.onEndSession(this);
                 this.finish();
                 return true;
             case R.id.Acerca:
@@ -125,77 +90,27 @@ public class AprenderRusoHD extends Activity implements OnInitListener {
         }
     }
 
-
-// Para Ogury
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        // Para revmob
-        revmob = RevMob.startWithListener(this, revmobListener);
-
-        Presage.getInstance().adToServe("interstitial", new IADHandler() {
-
-            @Override
-            public void onAdNotFound() {
-                // Para LeadBolt
-                if((getString(R.string.LeadBoltCTRL).equalsIgnoreCase("true"))) {
-                    //Toast.makeText(AprenderRusoHD.this,
-                    //        "Activado Leadbolt", Toast.LENGTH_LONG).show();
-                    AppTracker.loadModule(getApplicationContext(), "inapp");
-                }
-
-                if (getString(R.string.revmobCTRL).equalsIgnoreCase("true")){
-                    //Toast.makeText(AprenderRusoHD.this,
-                    //        "Activado Revmob", Toast.LENGTH_LONG).show();
-                    showRevmobAd();
-                }
-
-
-            }
-
-            @Override
-            public void onAdFound() {
-                Log.i("PRESAGE", "ad found");
-            }
-
-            @Override
-            public void onAdClosed() {
-                Log.i("PRESAGE", "ad closed");
-            }
-        });
-    }
+    private AdView adView;
 //Definicion de la interfaz de usuario
-
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+        // Initialize the Audience Network SDK Facebook
+        AudienceNetworkAds.initialize(this);
 
-        Presage.getInstance().setContext(this.getBaseContext());
-        Presage.getInstance().start();
+        adView = new AdView(this, "2326271501010193_2326271777676832", AdSize.BANNER_HEIGHT_50);
 
-        revmob = RevMob.startWithListener(this, revmobListener);
+        // Find the Ad Container
+        LinearLayout adContainer = (LinearLayout) findViewById(R.id.banner_container);
 
-        if(savedInstanceState == null) {
-            // Initialize Leadbolt SDK with your api key
-            AppTracker.startSession(getApplicationContext(), getString(R.string.LeadboltStr));
-        }
-        // cache Leadbolt Ad without showing it
-        AppTracker.loadModuleToCache(getApplicationContext(), "inapp");
+        // Add the ad view to your activity layout
+        adContainer.addView(adView);
 
-        // call this when you want to display the Leadbolt Interstitial
-        //AppTracker.loadModule(getApplicationContext(), "inapp");
-
-        if (getString(R.string.revmobCTRL).equalsIgnoreCase("true")){
-            //Toast.makeText(AprenderRusoHD.this,
-            //        "Activado Revmob", Toast.LENGTH_LONG).show();
-            showRevmobAd();
-        }
-
+        // Request an ad
+        adView.loadAd();
 
         Button holaPlayerBtn = (Button)findViewById(R.id.holaPlayerBtn);
         Button buenosdiasPlayerBtn = (Button)findViewById(R.id.buenosdiasPlayerBtn);
@@ -273,10 +188,6 @@ public class AprenderRusoHD extends Activity implements OnInitListener {
         Intent checkIntent = new Intent();
         checkIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
         startActivityForResult(checkIntent, MY_DATA_CHECK_CODE);
-
-//Id de Flurry	
-        FlurryAgent.onStartSession(this, getString(R.string.flurry));
-
 
 //Lo que hace el bot�n "Hola"
         holaPlayerBtn.setOnClickListener(new OnClickListener(){
@@ -1263,11 +1174,16 @@ public class AprenderRusoHD extends Activity implements OnInitListener {
             Linkify.addLinks(message, Linkify.ALL);
             return new AlertDialog.Builder(context).setTitle(aboutTitle).setCancelable(true).setIcon(R.mipmap.ic_launcher).setPositiveButton(
                     context.getString(android.R.string.ok), null).setView(message).create();
-
-
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        if (adView != null) {
+            adView.destroy();
+        }
+        super.onDestroy();
+    }
 
     @Override
     public void onInit(int status) {

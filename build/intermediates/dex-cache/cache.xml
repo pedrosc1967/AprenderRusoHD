@@ -9,13 +9,6 @@
         <dex dex="/Users/pedrosantangelocalvo/StudioProjects/AprenderRusoHD/app/build/intermediates/pre-dexed/release/classes-8c4b0e142636708204077b94f21d71e127567b08.jar" />
     </item>
     <item
-        jar="/Users/pedrosantangelocalvo/StudioProjects/AprenderRusoHD/app/libs/FlurryAnalytics_3.3.2.jar"
-        jumboMode="false"
-        revision="22.0.0"
-        sha1="5fb31df526a21837fb7b59f224fccbc5fbbf6273">
-        <dex dex="/Users/pedrosantangelocalvo/StudioProjects/AprenderRusoHD/app/build/intermediates/pre-dexed/release/FlurryAnalytics_3.3.2-6c674aa1e6a62b47b488e27543cfcb3d751c6679.jar" />
-    </item>
-    <item
         jar="/Users/pedrosantangelocalvo/Documents/Desarrollo/sdk/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"
         jumboMode="false"
         revision="22.0.0"
@@ -28,13 +21,6 @@
         revision="22.0.0"
         sha1="95fd37732ec852e99f07eeb516a3650172f1d136">
         <dex dex="/Users/pedrosantangelocalvo/StudioProjects/AprenderRusoHD/app/build/intermediates/pre-dexed/release/classes-71f16b468dfc22a947767d0192cbbc7d789de3fa.jar" />
-    </item>
-    <item
-        jar="/Users/pedrosantangelocalvo/StudioProjects/AprenderRusoHD/app/libs/AppTracker.jar"
-        jumboMode="false"
-        revision="22.0.0"
-        sha1="cc5636727a279d6c32745d779de69f0c42f753e6">
-        <dex dex="/Users/pedrosantangelocalvo/StudioProjects/AprenderRusoHD/app/build/intermediates/pre-dexed/release/AppTracker-c70e9a7d6981a23b74ed4b5d2d672b93c70e8cb4.jar" />
     </item>
     <item
         jar="/Users/pedrosantangelocalvo/StudioProjects/AprenderRusoHD/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/jars/libs/internal_impl-22.0.0.jar"
@@ -58,25 +44,10 @@
         <dex dex="/Users/pedrosantangelocalvo/StudioProjects/AprenderRusoHD/app/build/intermediates/pre-dexed/release/classes-845534e7c07229089d6d6e64c3391b67945608e9.jar" />
     </item>
     <item
-        jar="/Users/pedrosantangelocalvo/StudioProjects/AprenderRusoHD/app/libs/revmob.jar"
-        jumboMode="false"
-        revision="22.0.0"
-        sha1="eef1af34ff8ccb74ca48485b26f349706111d276">
-        <dex dex="/Users/pedrosantangelocalvo/StudioProjects/AprenderRusoHD/app/build/intermediates/pre-dexed/release/revmob-cc87778cc25fbdc23c74c2b6d9ab5dc71ee23146.jar" />
-    </item>
-    <item
         jar="/Users/pedrosantangelocalvo/StudioProjects/AprenderRusoHD/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/jars/classes.jar"
         jumboMode="false"
         revision="22.0.0"
         sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
         <dex dex="/Users/pedrosantangelocalvo/StudioProjects/AprenderRusoHD/app/build/intermediates/pre-dexed/release/classes-c89e2a54a6223acd6247f8395a36da0474ac59f0.jar" />
     </item>
-    <item
-        jar="/Users/pedrosantangelocalvo/StudioProjects/AprenderRusoHD/app/libs/presage-lib-1.6.0.jar"
-        jumboMode="false"
-        revision="22.0.0"
-        sha1="530dc4ed5821c0cdb6af0ca173f6918f5bb20346">
-        <dex dex="/Users/pedrosantangelocalvo/StudioProjects/AprenderRusoHD/app/build/intermediates/pre-dexed/release/presage-lib-1.6.0-0f9b162513d661da3509507eaa0d1df1485cc280.jar" />
-    </item>
-
 </items>

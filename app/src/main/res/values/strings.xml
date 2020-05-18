@@ -159,15 +159,11 @@
     <string name="version">Versiune</string>
     <string name="extra_text1">Această aplicație este foarte util! \nÎncercați ea! \nhttps://play.google.com/store/apps/details?id=</string>
     <string name="action_share" translatable="false">Share</string>
-    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-8829538089345362/5160622112</string>
-    <string name="OguryStr" translatable="false">266835</string>
-    <string name="flurry" translatable="false">B4GF6Y76XKVFY7P4GVW5</string>
-    <string name="paquete" translatable="false">com.aprender.ruso.hd</string>
+    <string name="paquete" translatable="false">com.aplanetbit.aprender.ruso.hd</string>
     <string name="analyticsstr" translatable="false">UA-56811260-29</string>
     <string name="LeadboltStr" translatable="false">hfXJPYVP4bUGVBQjduoyqHrJQLvTZhwy</string>
-    <string name="revmobstr" translatable="false">55c3679cc7006a26622c53b8</string>
     <string name="LeadBoltCTRL" translatable="false">true</string>
-    <string name="revmobCTRL" translatable="false">false</string>
+    <string name="facebookstr" translatable="false">2326271501010193_2326271777676832</string>
 </resources>
 
 

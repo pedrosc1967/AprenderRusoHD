@@ -21,7 +21,6 @@ Eclipse projects. Here's how the projects were restructured:
 * libs/AdWhirlSDK_Android_3.0.0.jar => app/libs/AdWhirlSDK_Android_3.0.0.jar
 * libs/AirpushSDK.jar => app/libs/AirpushSDK.jar
 * libs/AppFireworks.jar => app/libs/AppFireworks.jar
-* libs/FlurryAnalytics_3.3.2.jar => app/libs/FlurryAnalytics_3.3.2.jar
 * libs/GoogleAdMobAdsSdk-6.4.1.jar => app/libs/GoogleAdMobAdsSdk-6.4.1.jar
 * libs/LBPhonegapPlugin.jar => app/libs/LBPhonegapPlugin.jar
 * libs/LeadBoltB4A.jar => app/libs/LeadBoltB4A.jar

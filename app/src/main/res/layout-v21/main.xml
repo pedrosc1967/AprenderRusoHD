@@ -1,29 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- This file is /res/layout/main.xml   Era LinearLayout-->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
 
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context=".hd.AprenderRusoHD">
-
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        ads:adUnitId="@string/banner_ad_unit_id"
-        ads:adSize="SMART_BANNER" />
+    tools:context="com.aplanetbit.aprender.ruso.hd.AprenderRusoHD">
 
     <ScrollView
         android:id="@+id/scroll"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/adView">
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <LinearLayout
             android:orientation="vertical"
@@ -796,4 +787,11 @@
         </LinearLayout>
     </ScrollView>
 
-</RelativeLayout>
+    <LinearLayout
+        android:id="@+id/banner_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    </LinearLayout>
+
+</LinearLayout>
